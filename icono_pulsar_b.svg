@@ -1,0 +1,74 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f2a4a"/>
+      <stop offset="1" stop-color="#071019"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eaf2ff"/>
+      <stop offset="0.3" stop-color="#7fa8d8"/>
+      <stop offset="0.55" stop-color="#cfe0f5"/>
+      <stop offset="0.8" stop-color="#5d83b3"/>
+      <stop offset="1" stop-color="#dceaff"/>
+    </linearGradient>
+    <linearGradient id="inner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#11335c"/>
+      <stop offset="1" stop-color="#081726"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a3a66"/>
+      <stop offset="1" stop-color="#0c2444"/>
+    </linearGradient>
+    <linearGradient id="pulse" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#16d97f"/>
+      <stop offset="1" stop-color="#3ef2a0"/>
+    </linearGradient>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <g stroke="#2f6fd6" stroke-width="2" opacity="0.12" fill="none">
+    <path d="M0 160 H512 M0 350 H512 M160 0 V512 M352 0 V512"/>
+  </g>
+
+  <g filter="url(#sh)">
+    <path d="M256 64 L432 120 V270 C432 364 356 422 256 456 C156 422 80 364 80 270 V120 Z" fill="url(#metal)"/>
+    <path d="M256 92 L408 140 V268 C408 348 342 398 256 428 C170 398 104 348 104 268 V140 Z" fill="url(#inner)" stroke="#081726" stroke-width="2"/>
+    <path d="M256 92 L408 140 V268 C408 348 342 398 256 428 C170 398 104 348 104 268 V140 Z" fill="none" stroke="#3ef2a0" stroke-width="3" opacity="0.5"/>
+
+    <!-- ECU / CHIP (computadora) -->
+    <g>
+      <!-- patitas -->
+      <g stroke="#cfe0f5" stroke-width="6" stroke-linecap="round">
+        <line x1="196" y1="190" x2="180" y2="190"/><line x1="196" y1="214" x2="180" y2="214"/>
+        <line x1="196" y1="238" x2="180" y2="238"/><line x1="196" y1="262" x2="180" y2="262"/>
+        <line x1="316" y1="190" x2="332" y2="190"/><line x1="316" y1="214" x2="332" y2="214"/>
+        <line x1="316" y1="238" x2="332" y2="238"/><line x1="316" y1="262" x2="332" y2="262"/>
+      </g>
+      <!-- cuerpo del chip -->
+      <rect x="196" y="172" width="120" height="108" rx="12" fill="url(#chip)" stroke="#cfe0f5" stroke-width="4"/>
+      <!-- circuito interno -->
+      <g stroke="#3ef2a0" stroke-width="3.5" fill="none" opacity="0.9" filter="url(#glow)">
+        <path d="M226 210 H256 V240 H286"/>
+        <circle cx="226" cy="210" r="4" fill="#3ef2a0"/>
+        <circle cx="286" cy="240" r="4" fill="#3ef2a0"/>
+        <path d="M226 252 H250"/>
+      </g>
+      <!-- nucleo -->
+      <rect x="240" y="214" width="32" height="24" rx="4" fill="#16d97f" opacity="0.85"/>
+    </g>
+
+    <!-- PULSO eléctrico -->
+    <path d="M120 340 H196 L214 314 L236 362 L256 332 H392"
+          fill="none" stroke="url(#pulse)" stroke-width="7"
+          stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  </g>
+
+  <text x="256" y="406" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="34" font-weight="900" fill="#3ef2a0" letter-spacing="2">DX</text>
+</svg>
